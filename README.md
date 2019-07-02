@@ -2,7 +2,7 @@
 Main function: change reviewer data in comments in .docx files
 
 ## How to run
-Best way to run is to start main_GUI.py and use GUI.
+Best way to run is to start setup.py and use GUI.
 
 ## How to use
 1. Select file you want to change.
