@@ -12,11 +12,11 @@ import os
 import tkinter as tk
 import tkinter.filedialog as fd
 import tkinter.messagebox as msg
-from GetCommentElements import GetCommentElements
-from GetUniqueAuthors import GetUniqueAuthors
-from GetCommentInfo import GetCommentInfo
-from CommentsToChange import CommentsToChange
-from ReplaceComments import ReplaceComments
+from get_comment_elements import get_comment_elements
+from get_unique_authors import get_unique_authors
+from get_comment_info import get_comment_info
+from comments_to_change import comments_to_change
+from replace_comments import replace_comments
 
 
 #===================
@@ -30,7 +30,7 @@ from ReplaceComments import ReplaceComments
 #==========
 #Select source docx file
 #==========
-def SelectSourceDocx():
+def select_source_docx():
     filename = fd.askopenfilename(filetypes=[('.docx','*.docx')])
     if filename != '':
         src_dir.delete(0, tk.END)
@@ -44,13 +44,13 @@ def SelectSourceDocx():
         start_btn['state']='normal'
         start_btn['bg'] = 'lightgreen'
         start_btn.update()
-    FillAuthors(filename)
+    fill_authors(filename)
 
 
 #==========
 #Select new docx file directory
 #==========
-def SelectNewDocx():
+def select_new_docx():
     sourcefile=dst_dir.get()
     newfile = fd.askdirectory()
     if newfile!='':
@@ -63,7 +63,7 @@ def SelectNewDocx():
 #==========
 #Reload entries when any checkbox changes its value
 #==========
-def Check():
+def check():
     i=2
     checks=[]
     while True:
@@ -108,9 +108,9 @@ def Check():
 #==========
 #Fill entries with authors
 #==========
-def FillAuthors(filename):
-    comments1 = GetCommentElements(filename)
-    authors = GetUniqueAuthors(comments1)
+def fill_authors(filename):
+    comments1 = get_comment_elements(filename)
+    authors = get_unique_authors(comments1)
     row=2
     for i in range(len(authors)):
         src_author=authors[i][0]
@@ -133,7 +133,7 @@ def FillAuthors(filename):
         new_initial = tk.Entry(comments, textvariable=new_initial_var, width=7, state='disabled')
         new_initial.grid(row=row, column=4, sticky='W', padx=2)
         
-        chk = tk.Checkbutton(comments, command=Check)
+        chk = tk.Checkbutton(comments, command=check)
         chk.grid(row=row, column=0)
         row+=1
 
@@ -141,15 +141,15 @@ def FillAuthors(filename):
 #==========
 #Main function
 #==========
-def Start():
-    chk_var = Check() #get checkboxes values
+def start():
+    chk_var = check() #get checkboxes values
     fulllen = len(chk_var) #number of authors
     
     #call functions needed to replace comments
     docxfile = src_dir.get()
-    comments_docx = GetCommentElements(docxfile)
-    authors = GetUniqueAuthors(comments_docx)
-    cominfo = GetCommentInfo(comments_docx)
+    comments_docx = get_comment_elements(docxfile)
+    authors = get_unique_authors(comments_docx)
+    cominfo = get_comment_info(comments_docx)
     
     #create tuple with new authors
     authors_to_change=[]
@@ -169,12 +169,12 @@ def Start():
         if chk_var[k] == 1:
             wanted_changes.append(authors_merged[k])
     
-    coms_to_change = CommentsToChange(cominfo, wanted_changes)
+    coms_to_change = comments_to_change(cominfo, wanted_changes)
     
     newfile = dst_dir.get()
     
     #replace comments
-    ReplaceComments(coms_to_change, newfile, docxfile)
+    replace_comments(coms_to_change, newfile, docxfile)
     
     msg.showinfo('Finished successfully', 'New file: {}'.format(newfile))
 
@@ -190,7 +190,7 @@ frame1.grid(sticky='news')
 
 
 #Start button
-start_btn = tk.Button(frame1, text = "Start", width=64, font = ('', '12'), state='disabled', command=Start)
+start_btn = tk.Button(frame1, text = "Start", width=64, font = ('', '12'), state='disabled', command=start)
 start_btn.grid(column=1, row=0, columnspan=5, sticky='W', padx=5, pady=5)
 
 #Source file
@@ -201,7 +201,7 @@ src_docx = tk.StringVar() #source docx file
 src_dir = tk.Entry(frame1, width=88, state='normal', textvariable=src_docx)
 src_dir.grid(column=1, row=2, columnspan=4,sticky='W', padx=5, pady=0)
 
-src_btn = tk.Button(frame1, text='Select', command = SelectSourceDocx)
+src_btn = tk.Button(frame1, text='Select', command = select_source_docx)
 src_btn.grid(column=5, row=2, sticky='E')
 
 #Destination file
@@ -212,7 +212,7 @@ dst_docx = tk.StringVar() #new docx directory
 dst_dir = tk.Entry(frame1, width=88, state='disabled', textvariable=dst_docx)
 dst_dir.grid(column=1, row=4, columnspan=4, sticky='W', padx=5, pady=0)
 
-dst_btn = tk.Button(frame1, state='disabled', text='Select', command = SelectNewDocx)
+dst_btn = tk.Button(frame1, state='disabled', text='Select', command = select_new_docx)
 dst_btn.grid(column=5, row=4, sticky='E')
 
 
