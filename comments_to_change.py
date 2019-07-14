@@ -10,7 +10,7 @@ github: https://github.com/ulaszewskim
 #==========
 #create list of comments to change
 #==========
-def CommentsToChange(cominfo,authors_merged):
+def comments_to_change(cominfo,authors_merged):
     coms_to_change=[]
     for c in range(len(cominfo)):
         for a in range(len(authors_merged)):
