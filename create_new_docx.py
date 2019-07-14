@@ -13,7 +13,7 @@ import zipfile
 #==========
 #Create docx from directory
 #==========
-def CreateNewDocx(directory, docxname):
+def create_new_docx(directory, docxname):
     zip_file = zipfile.ZipFile(docxname, 'w', zipfile.ZIP_DEFLATED)
     rootdir = os.path.basename(directory)
     for dirpath, dirnames, filenames in os.walk(directory):
