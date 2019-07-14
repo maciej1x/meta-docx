@@ -15,7 +15,7 @@ from shutil import copy2, rmtree
 #create docx with new comments
 #==========
 
-def CreateTempZipDir(docxfile, path_to_docxfile):
+def create_temp_zip_dir(docxfile, path_to_docxfile):
     if os.path.exists(os.path.join(path_to_docxfile,'temp_meta_docx')):
         rmtree(os.path.join(path_to_docxfile,'temp_meta_docx'))
     os.mkdir(os.path.join(path_to_docxfile,'temp_meta_docx'))
