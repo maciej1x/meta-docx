@@ -11,7 +11,7 @@ github: https://github.com/ulaszewskim
 #get id, author, date and initials of comments 
 #returns list of tuples, for example: ('1', 'Author Name', '2019-01-01T00:00:00Z', 'AN')
 #==========
-def GetCommentInfo(comments):
+def get_comment_info(comments):
     ns = {'w':'http://schemas.openxmlformats.org/wordprocessingml/2006/main'}
     com=[]
     for comment in comments:
