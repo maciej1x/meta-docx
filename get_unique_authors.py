@@ -11,7 +11,7 @@ github: https://github.com/ulaszewskim
 #get all unique authors names with initials of comments
 #returns list of tuples, for example: ('Author Name','AN')
 #==========
-def GetUniqueAuthors(comments):
+def get_unique_authors(comments):
     ns = {'w':'http://schemas.openxmlformats.org/wordprocessingml/2006/main'}
     authors=[]
     for comment in comments:
