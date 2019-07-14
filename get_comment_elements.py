@@ -12,7 +12,7 @@ from lxml import etree
 #==========
 #get comments elements from docx file
 #==========
-def GetCommentElements(docxfile):
+def get_comment_elements(docxfile):
     ns = {'w':'http://schemas.openxmlformats.org/wordprocessingml/2006/main'}
     docxZip = zipfile.ZipFile(docxfile)
     commentsXML = docxZip.read('word/comments.xml')
