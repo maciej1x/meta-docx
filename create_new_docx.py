@@ -15,7 +15,7 @@ def create_new_docx(directory, docxname):
     """Create docx from directory"""
     zip_file = zipfile.ZipFile(docxname, 'w', zipfile.ZIP_DEFLATED)
     rootdir = os.path.basename(directory)
-    for dirpath, dirnames, filenames in os.walk(directory):
+    for dirpath, filenames in os.walk(directory):
         for filename in filenames:
             filepath = os.path.join(dirpath, filename)
             fullpath = os.path.relpath(filepath, directory)
