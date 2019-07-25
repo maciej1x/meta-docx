@@ -9,13 +9,12 @@ github:https://github.com/ulaszewskim
 import zipfile
 from lxml import etree
 
-#==========
-#get comments elements from docx file
-#==========
+
 def get_comment_elements(docxfile):
+    """get comments elements from docx file"""
     ns = {'w':'http://schemas.openxmlformats.org/wordprocessingml/2006/main'}
-    docxZip = zipfile.ZipFile(docxfile)
-    commentsXML = docxZip.read('word/comments.xml')
-    et = etree.XML(commentsXML)
-    comments = et.xpath('//w:comment',namespaces=ns)
+    docx_zip = zipfile.ZipFile(docxfile)
+    comments_xml = docx_zip.read('word/comments.xml')
+    et = etree.XML(comments_xml)
+    comments = et.xpath('//w:comment', namespaces=ns)
     return comments
