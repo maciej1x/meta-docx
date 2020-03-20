@@ -1,5 +1,5 @@
 # Meta-Docx
-Program to hange reviewer data in comments in .docx files
+Program to change reviewer data in comments in .docx files
 
 ![program window](https://raw.githubusercontent.com/ulaszewskim/meta-docx/master/images/program.PNG)
 
