@@ -1,8 +1,15 @@
 # Meta-Docx
-Main function: change reviewer data in comments in .docx files
+Program to hange reviewer data in comments in .docx files
+
+![program window](https://raw.githubusercontent.com/ulaszewskim/meta-docx/master/images/program.png)
+
+**Before**
+![screen before](https://raw.githubusercontent.com/ulaszewskim/meta-docx/master/images/before.png)
+**After**
+![screen after](https://raw.githubusercontent.com/ulaszewskim/meta-docx/master/images/after.png)
 
 ## How to run
-Best way to run is to start setup.py and use GUI.
+Start setup.py and use GUI.
 
 ## How to use
 1. Select file you want to change.
