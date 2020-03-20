@@ -1,12 +1,12 @@
 # Meta-Docx
 Program to hange reviewer data in comments in .docx files
 
-![program window](https://raw.githubusercontent.com/ulaszewskim/meta-docx/master/images/program.png)
+![program window](https://raw.githubusercontent.com/ulaszewskim/meta-docx/master/images/program.PNG)
 
-**Before**
-![screen before](https://raw.githubusercontent.com/ulaszewskim/meta-docx/master/images/before.png)
-**After**
-![screen after](https://raw.githubusercontent.com/ulaszewskim/meta-docx/master/images/after.png)
+**Before**</br>
+![screen before](https://raw.githubusercontent.com/ulaszewskim/meta-docx/master/images/before.png)</br>
+**After**</br>
+![screen after](https://raw.githubusercontent.com/ulaszewskim/meta-docx/master/images/after.PNG)
 
 ## How to run
 Start setup.py and use GUI.
