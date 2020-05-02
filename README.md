@@ -17,10 +17,3 @@ Start setup.py and use GUI.
 3. Select checkbox next to reviewer name you want to change
 4. Input new reviewer data.
 5. Start
-
-## TO DO:
-- [ ] .doc file support
-- [X] messagebox when job is finished
-- [ ] change temporary folder to not overwrite existing files
-- [ ] posibility to change other metadata
-- [ ] messagebox when selected file has no comments
